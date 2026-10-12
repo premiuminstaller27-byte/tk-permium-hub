@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TK APP HUB</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050912;color:#fff;font-family:Arial,sans-serif}
+header{padding:20px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #17375b}
+.logo{font-size:25px;font-weight:900;color:#53caff}
+nav a{color:white;text-decoration:none;margin-left:18px}
+.hero{
+min-height:400px;
+padding:65px 7%;
+background:
+linear-gradient(90deg,rgba(5,9,18,.65),rgba(5,9,18,.1)),
+url("https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1600&q=85")
+center / cover no-repeat;
+display:flex;
+align-items:center;
+}
+.hero h1{font-size:clamp(36px,6vw,65px);margin:0 0 15px}
+.blue{color:#52caff}
+.hero p{color:#b6c8df;line-height:1.7}
+.btn{display:inline-block;background:#25bfff;color:#00101c;padding:13px 22px;border-radius:7px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
+main{padding:35px 7%}
+.search{width:100%;padding:14px;background:#0c1728;border:1px solid #23476d;border-radius:8px;color:white;margin:10px 0 25px}
+.apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.card{background:#0c1728;border:1px solid #1d4164;border-radius:12px;padding:22px;text-align:center}
+.appicon{font-size:48px}
+.card h3{margin:12px 0}
+.card p{color:#aabbd0;font-size:14px}
+footer{text-align:center;color:#8496ad;padding:25px;border-top:1px solid #17375b}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">TK <span class="blue">APP HUB</span></div>
+  <nav><a href="#apps">Apps</a></nav>
+</header>
+<section class="hero">
+  <div>
+    <p class="blue">WELCOME TO YOUR APP HUB</p>
+    <h1>Discover Your<br><span class="blue">Next Favourite App</span></h1>
+    <p>Explore apps in one simple place.</p>
+    <a class="btn" href="#apps">Explore Apps ↓</a>
+  </div>
+</section>
+<main id="apps">
+  <h2>Popular Apps</h2>
+  <input class="search" id="search" placeholder="🔍 Search apps..." oninput="filterApps()">
+  <div class="apps" id="appList">
+    <article class="card" data-name="capcut">
+      <div class="appicon">🎬</div>
+      <h3>CapCut</h3>
+      <p>Video editing</p>
+      <a class="btn" href="https://www.capcut.com/" target="_blank" rel="noopener">Get App</a>
+    </article>
+    <article class="card" data-name="instagram">
+      <div class="appicon">📸</div>
+      <h3>Instagram</h3>
+      <p>Photos and videos</p>
+      <a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener">Get App</a>
+    </article>
+    <article class="card" data-name="telegram">
+      <div class="appicon">✈️</div>
+      <h3>Telegram</h3>
+      <p>Messaging app</p>
+      <a class="btn" href="https://telegram.org/android" target="_blank" rel="noopener">Get App</a>
+    </article>
+  </div>
+</main>
+<footer>© 2026 TK APP HUB</footer>
+<script>
+function filterApps(){
+ const query=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('.card').forEach(card=>{
+  card.style.display=card.dataset.name.includes(query)?'block':'none';
+ });
+}
+</script>
+</body>
+</html>
